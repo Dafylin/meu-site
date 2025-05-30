@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beatriz Moda - Elegância e Estilo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-section {
+            background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .product-card:hover .quick-view {
+            opacity: 1;
+            bottom: 20px;
+        }
+        
+        .quick-view {
+            transition: all 0.3s ease;
+            opacity: 0;
+            bottom: 0;
+        }
+        
+        .cart-count {
+            top: -5px;
+            right: -5px;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Top Bar -->
+    <div class="bg-red-600 text-white py-2 px-4 text-sm">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex space-x-4">
+                <a href="#" class="hover:text-gray-200"><i class="fas fa-phone-alt mr-1"></i> (41) 99895-6228</a>
+                <a href="mailto:triix.nascimento@gmail.com" class="hover:text-gray-200"><i class="fas fa-envelope mr-1"></i> dafylin.nascimento@gmail.com</a>
+            </div>
+            <div class="flex space-x-4">
+                <a href="#" class="hover:text-gray-200"><i class="fas fa-truck mr-1"></i> Frete Grátis acima de R$200</a>
+                <div class="flex space-x-2">
+                    <a href="#" class="hover:text-gray-200"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-gray-200"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-gray-200"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold">
+                        <span class="text-red-600">BEATRIZ</span>
+                        <span class="text-gray-800">MODA</span>
+                    </a>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="hidden md:flex flex-1 mx-8">
+                    <div class="relative w-full max-w-xl">
+                        <input type="text" placeholder="Buscar produtos..." class="w-full px-4 py-2 border border-gray-300 rounded-l focus:outline-none focus:ring-1 focus:ring-red-500">
+                        <button class="bg-red-600 text-white px-4 py-2 rounded-r hover:bg-red-700">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- User Actions -->
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="text-gray-700 hover:text-red-600">
+                        <i class="fas fa-user text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-700 hover:text-red-600">
+                        <i class="fas fa-heart text-xl"></i>
+                    </a>
+                    <div class="relative">
+                        <a href="#" class="text-gray-700 hover:text-red-600">
+                            <i class="fas fa-shopping-cart text-xl"></i>
+                            <span class="cart-count absolute bg-red-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Search -->
+            <div class="md:hidden mt-4">
+                <div class="relative w-full">
+                    <input type="text" placeholder="Buscar produtos..." class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-red-500">
+                    <button class="absolute right-0 top-0 h-full px-3 text-gray-500">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white border-t border-b border-gray-200">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <!-- Categories Dropdown -->
+                <div class="dropdown relative">
+                    <button class="bg-red-600 text-white px-6 py-3 flex items-center hover:bg-red-700">
+                        <i class="fas fa-bars mr-2"></i>
+                        <span>Categorias</span>
+                        <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                    </button>
+                    <div class="dropdown-menu absolute hidden bg-white shadow-lg rounded mt-1 w-56 z-50">
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Feminino</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Masculino</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Infantil</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Acessórios</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Promoções</a>
+                    </div>
+                </div>
+                
+                <!-- Main Navigation -->
+                <div class="hidden md:flex space-x-6">
+                    <a href="#" class="py-3 text-gray-800 hover:text-red-600 font-medium">Home</a>
+                    <a href="#" class="py-3 text-gray-800 hover:text-red-600 font-medium">Novidades</a>
+                    <a href="#" class="py-3 text-gray-800 hover:text-red-600 font-medium">Feminino</a>
+                    <a href="#" class="py-3 text-gray-800 hover:text-red-600 font-medium">Masculino</a>
+                    <a href="#" class="py-3 text-gray-800 hover:text-red-600 font-medium">Infantil</a>
+                    <a href="#" class="py-3 text-gray-800 hover:text-red-600 font-medium">Contato</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-gray-800">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Coleção Verão 2023</h1>
+                    <p class="text-lg text-gray-600 mb-6">Descubra as últimas tendências da moda com peças exclusivas e elegantes para todas as ocasiões.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-red-600 text-white px-6 py-3 rounded hover:bg-red-700 font-medium">Compre Agora</a>
+                        <a href="#" class="border border-gray-800 text-gray-800 px-6 py-3 rounded hover:bg-gray-100 font-medium">Ver Coleção</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Modelo com roupa da coleção verão" class="rounded-lg shadow-lg max-w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Nossas Categorias</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="relative group overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Feminino" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                        <h3 class="text-white text-2xl font-bold">Feminino</h3>
+                    </div>
+                    <a href="#" class="absolute inset-0"></a>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=736&q=80" alt="Masculino" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                        <h3 class="text-white text-2xl font-bold">Masculino</h3>
+                    </div>
+                    <a href="#" class="absolute inset-0"></a>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1025&q=80" alt="Infantil" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                        <h3 class="text-white text-2xl font-bold">Infantil</h3>
+                    </div>
+                    <a href="#" class="absolute inset-0"></a>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1592155931584-901ac15763e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Acessórios" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                        <h3 class="text-white text-2xl font-bold">Acessórios</h3>
+                    </div>
+                    <a href="#" class="absolute inset-0"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-800">Produtos em Destaque</h2>
+                <a href="#" class="text-red-600 hover:text-red-800 font-medium">Ver todos <i class="fas fa-arrow-right ml-1"></i></a>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 relative">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Vestido Floral" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 left-2 bg-red-600 text-white text-xs px-2 py-1 rounded">Novidade</div>
+                        <button class="quick-view absolute left-1/2 transform -translate-x-1/2 bg-white text-red-600 px-4 py-2 rounded font-medium shadow-lg">Visualização Rápida</button>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1">Vestido Floral</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2">(24)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-red-600 font-bold text-lg">R$ 129,90</span>
+                            <span class="text-gray-400 text-sm line-through">R$ 159,90</span>
+                        </div>
+                    </div>
+                    <div class="px-4 pb-4">
+                        <button class="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700 transition">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 relative">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=736&q=80" alt="Camisa Social" class="w-full h-64 object-cover">
+                        <button class="quick-view absolute left-1/2 transform -translate-x-1/2 bg-white text-red-600 px-4 py-2 rounded font-medium shadow-lg">Visualização Rápida</button>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1">Camisa Social Slim</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2">(18)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-red-600 font-bold text-lg">R$ 89,90</span>
+                        </div>
+                    </div>
+                    <div class="px-4 pb-4">
+                        <button class="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700 transition">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 relative">
+                    <div class="relative">
+                        <img src="conjunto.png" alt="Conjunto Infantil" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 left-2 bg-red-600 text-white text-xs px-2 py-1 rounded">-20%</div>
+                        <button class="quick-view absolute left-1/2 transform -translate-x-1/2 bg-white text-red-600 px-4 py-2 rounded font-medium shadow-lg">Visualização Rápida</button>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1">Conjunto Infantil</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2">(32)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-red-600 font-bold text-lg">R$ 79,90</span>
+                            <span class="text-gray-400 text-sm line-through">R$ 99,90</span>
+                        </div>
+                    </div>
+                    <div class="px-4 pb-4">
+                        <button class="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700 transition">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 relative">
+                    <div class="relative">
+                        <img src="bolsa.png" alt="Bolsa de Couro" class="w-full h-64 object-cover">
+                        <button class="quick-view absolute left-1/2 transform -translate-x-1/2 bg-white text-red-600 px-4 py-2 rounded font-medium shadow-lg">Visualização Rápida</button>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1">Bolsa de Couro</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2">(15)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-red-600 font-bold text-lg">R$ 199,90</span>
+                        </div>
+                    </div>
+                    <div class="px-4 pb-4">
+                        <button class="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700 transition">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="bg-red-600 rounded-lg overflow-hidden">
+                <div class="flex flex-col md:flex-row">
+                    <div class="md:w-1/2 p-8 md:p-12 text-white">
+                        <h2 class="text-3xl font-bold mb-4">Promoção de Verão</h2>
+                        <p class="text-lg mb-6">Até 30% de desconto em toda a coleção de verão. Aproveite essa oferta por tempo limitado!</p>
+                        <a href="#" class="bg-white text-red-600 px-6 py-3 rounded font-medium inline-block hover:bg-gray-100">Compre Agora</a>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Promoção de Verão" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">O Que Nossos Clientes Dizem</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="text-gray-600">5/5</span>
+                    </div>
+                    <p class="text-gray-700 mb-4">"Adorei o vestido que comprei! O material é de ótima qualidade e o atendimento foi excelente. Com certeza voltarei a comprar aqui."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Cliente" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Mariana Silva</h4>
+                            <span class="text-gray-600 text-sm">São Paulo, SP</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="text-gray-600">4.5/5</span>
+                    </div>
+                    <p class="text-gray-700 mb-4">"Comprei uma camisa para meu marido e ele adorou! O corte ficou perfeito e o tecido é muito confortável. Entrega rápida também."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Carla Mendes</h4>
+                            <span class="text-gray-600 text-sm">Curitiba, PR</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="text-gray-600">5/5</span>
+                    </div>
+                    <p class="text-gray-700 mb-4">"O conjunto infantil que comprei para minha filha é lindo! As cores não desbotaram mesmo após várias lavagens. Recomendo!"</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Cliente" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Patrícia Oliveira</h4>
+                            <span class="text-gray-600 text-sm">Porto Alegre, RS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Assine Nossa Newsletter</h2>
+                <p class="text-gray-600 mb-6">Receba as últimas novidades, promoções exclusivas e descontos diretamente no seu e-mail.</p>
+                <form class="flex flex-col sm:flex-row gap-2">
+                    <input type="email" placeholder="Seu melhor e-mail" class="flex-1 px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-red-500">
+                    <button type="submit" class="bg-red-600 text-white px-6 py-3 rounded font-medium hover:bg-red-700">Assinar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">DAFYLIN MODA</h3>
+                    <p class="text-gray-400 mb-4">Há 5 anos oferecendo as melhores roupas e acessórios com qualidade e estilo.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Links Úteis</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Sobre Nós</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Trocas e Devoluções</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Política de Privacidade</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Termos de Serviço</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Minha Conta</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Minha Conta</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Meus Pedidos</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Lista de Desejos</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Newsletter</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contato</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">Av. Paulista, 1000<br>São Paulo - SP</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">(41) 99895-6218</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">triix.nascimento@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 mb-4 md:mb-0">© 2023 Dafylin Moda. Todos os direitos reservados.</p>
+                    <div class="flex space-x-6">
+                        <img src="https://via.placeholder.com/40x25" alt="Visa" class="h-6">
+                        <img src="https://via.placeholder.com/40x25" alt="Mastercard" class="h-6">
+                        <img src="https://via.placeholder.com/40x25" alt="Boleto" class="h-6">
+                        <img src="https://via.placeholder.com/40x25" alt="Pix" class="h-6">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quick View Modal -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden" id="quickViewModal">
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg w-11/12 max-w-4xl max-h-[90vh] overflow-y-auto">
+            <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" id="closeQuickView">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            <div class="p-6">
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Product" class="w-full rounded-lg">
+                        <div class="grid grid-cols-4 gap-2 mt-4">
+                            <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Thumbnail" class="h-20 object-cover rounded border border-gray-200 cursor-pointer">
+                            <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Thumbnail" class="h-20 object-cover rounded border border-gray-200 cursor-pointer">
+                            <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Thumbnail" class="h-20 object-cover rounded border border-gray-200 cursor-pointer">
+                            <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Thumbnail" class="h-20 object-cover rounded border border-gray-200 cursor-pointer">
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Vestido Floral</h3>
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400 mr-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-gray-600">(24 avaliações)</span>
+                        </div>
+                        <div class="mb-6">
+                            <span class="text-red-600 font-bold text-2xl">R$ 129,90</span>
+                            <span class="text-gray-400 text-lg line-through ml-2">R$ 159,90</span>
+                        </div>
+                        <p class="text-gray-700 mb-6">Vestido floral de verão com tecido leve e respirável. Ideal para dias quentes, com corte que valoriza o corpo e proporciona conforto durante todo o dia.</p>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold text-gray-800 mb-2">Tamanho</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <button class="px-4 py-2 border border-gray-300 rounded hover:bg-gray-100">P</button>
+                                <button class="px-4 py-2 border border-gray-300 rounded hover:bg-gray-100">M</button>
+                                <button class="px-4 py-2 border border-gray-300 rounded hover:bg-gray-100">G</button>
+                                <button class="px-4 py-2 border border-gray-300 rounded hover:bg-gray-100">GG</button>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold text-gray-800 mb-2">Cor</h4>
+                            <div class="flex gap-2">
+                                <button class="w-8 h-8 rounded-full bg-red-500 border-2 border-white shadow"></button>
+                                <button class="w-8 h-8 rounded-full bg-blue-500 border-2 border-white shadow"></button>
+                                <button class="w-8 h-8 rounded-full bg-green-500 border-2 border-white shadow"></button>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center mb-6">
+                            <div class="flex items-center border border-gray-300 rounded mr-4">
+                                <button class="px-3 py-1 text-xl">-</button>
+                                <span class="px-4 border-x border-gray-300">1</span>
+                                <button class="px-3 py-1 text-xl">+</button>
+                            </div>
+                            <button class="flex-1 bg-red-600 text-white py-3 rounded hover:bg-red-700 font-medium">Adicionar ao Carrinho</button>
+                        </div>
+                        
+                        <div class="border-t border-gray-200 pt-4">
+                            <div class="flex items-center text-gray-600 mb-2">
+                                <i class="fas fa-truck mr-2"></i>
+                                <span>Frete grátis para todo o Brasil</span>
+                            </div>
+                            <div class="flex items-center text-gray-600">
+                                <i class="fas fa-undo mr-2"></i>
+                                <span>Devolução grátis em até 7 dias</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Quick View Modal
+        const quickViewButtons = document.querySelectorAll('.quick-view');
+        const quickViewModal = document.getElementById('quickViewModal');
+        const closeQuickView = document.getElementById('closeQuickView');
+        
+        quickViewButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                quickViewModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        closeQuickView.addEventListener('click', () => {
+            quickViewModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close modal when clicking outside
+        quickViewModal.addEventListener('click', (e) => {
+            if (e.target === quickViewModal) {
+                quickViewModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Mobile menu toggle (placeholder - would need more implementation)
+        const mobileMenuButton = document.querySelector('nav button.md\\:hidden');
+        mobileMenuButton.addEventListener('click', () => {
+            alert('Mobile menu would open here with more implementation');
+        });
+        
+        // Product image thumbnail click
+        const thumbnails = document.querySelectorAll('#quickViewModal .h-20');
+        const mainImage = document.querySelector('#quickViewModal .md\\:w-1\\/2 img');
+        
+        thumbnails.forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                mainImage.src = thumb.src;
+            });
+        });
+    </script>
+</body>
+</html>
